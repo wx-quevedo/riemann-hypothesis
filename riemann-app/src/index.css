@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Paleta sobria (sección 7 / skill riemann-didactic-design):
+   base neutra (slate) + un acento (teal); superficies planas, sin gradientes/glow.
+   El modo oscuro se activa con la clase `dark` en <html> (Tailwind darkMode:'class'). */
+@layer base {
+  html {
+    color-scheme: light dark;
+  }
+  body {
+    /* text-base = 16px de base: evita el zoom automático de iOS y mantiene legibilidad en móvil (Fase 9, E). */
+    @apply font-sans antialiased bg-slate-50 text-slate-900 text-base;
+  }
+  html.dark body {
+    @apply bg-slate-950 text-slate-100;
+  }
+}
+
+/* Fase 9 (responsive ADITIVO). Todo lo de aquí solo añade comportamiento en pantallas/punteros
+   táctiles; el desktop (puntero fino) queda intacto. */
+@layer components {
+  /* Ecuaciones KaTeX anchas: scroll horizontal PROPIO con barra fina visible como indicador, sin
+     atrapar el scroll vertical de la página (touch-action: pan-x). En desktop, si no desborda, no
+     aparece barra y el bloque se ve idéntico. (Parte B) */
+  .katex-scroll {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    touch-action: pan-x;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+  .katex-scroll::-webkit-scrollbar {
+    height: 6px;
+  }
+  .katex-scroll::-webkit-scrollbar-thumb {
+    background: rgba(100, 116, 139, 0.5);
+    border-radius: 3px;
+  }
+}
+
+/* Áreas de toque cómodas SOLO en dispositivos de puntero grueso (dedo). En desktop (puntero fino)
+   estas reglas no aplican → tamaños de control idénticos. (Partes D y E) */
+@media (pointer: coarse) {
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  input[type='range'] {
+    min-height: 44px;
+  }
+  /* Inputs de texto/número a 16px en táctil → iOS no hace zoom automático al enfocar (Parte E). */
+  input[type='number'],
+  input[type='text'],
+  textarea {
+    font-size: 16px;
+  }
+}

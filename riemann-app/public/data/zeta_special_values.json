@@ -1,0 +1,48 @@
+{
+  "description": "Valores especiales de ζ(s) para validación y para mostrar en módulos.",
+  "source": "mpmath.zeta(s)",
+  "precision_dps": 30,
+  "values": [
+    {
+      "s": 2,
+      "value": 1.6449340668482264,
+      "closed_form": "\\dfrac{\\pi^2}{6}"
+    },
+    {
+      "s": 4,
+      "value": 1.0823232337111381,
+      "closed_form": "\\dfrac{\\pi^4}{90}"
+    },
+    {
+      "s": 6,
+      "value": 1.0173430619844492,
+      "closed_form": "\\dfrac{\\pi^6}{945}"
+    },
+    {
+      "s": 3,
+      "value": 1.2020569031595942,
+      "note": "Constante de Apéry — sin forma cerrada elemental conocida."
+    },
+    {
+      "s": 0,
+      "value": -0.5,
+      "closed_form": "-\\tfrac{1}{2}"
+    },
+    {
+      "s": -1,
+      "value": -0.08333333333333333,
+      "closed_form": "-\\tfrac{1}{12}"
+    },
+    {
+      "s": -2,
+      "value": 0.0,
+      "closed_form": "0",
+      "note": "Primer cero trivial de ζ."
+    },
+    {
+      "s": -3,
+      "value": 0.008333333333333333,
+      "closed_form": "\\tfrac{1}{120}"
+    }
+  ]
+}

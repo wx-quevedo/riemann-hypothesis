@@ -1,0 +1,3 @@
+# Precálculo offline de la Fase 2 (Python + mpmath). Se corre UNA vez en el tower;
+# la app en runtime solo lee los JSON generados, nunca llama a Python (road map §6).
+mpmath==1.3.0
